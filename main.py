@@ -75,17 +75,12 @@ def first_day_only_participants(participants_list):
     expected return object is a list of strings
     """
     first_day_record = participants_list[0]
-    record = {}
-
+    frequency = get_participiant_record(participants_list)
+    data =[]
     for i in first_day_record:
-        record[i] = 0
-        for j in range(1, len(participants_list)):
-            if i in participants_list[j]:
-                record[i] += 1
-    data = []
-    for i in record:
-        if record.get(i) < 1:
+        if frequency.get(i)==1:
             data.append(i)
+    
     return data
 
 
